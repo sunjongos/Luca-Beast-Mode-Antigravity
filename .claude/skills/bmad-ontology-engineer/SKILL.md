@@ -1,29 +1,31 @@
 # Skill: bmad-ontology-engineer
 
 ## 1. 개요 (Overview)
-`bmad-ontology-engineer`는 기존 Luca의 장기 공유 메모리(`luca_brain_memory_4architecture`)와 완전히 분리된, **Lucy 전용 독립 장기 메모리(Lucy Brain Memory)**를 구축하고 관리하는 핵심 스킬입니다. 
-Vibe Coding을 수행하며 얻은 최고의 애니메이션 패턴, 디자인 토큰, 그리고 주요 작업 내역(Task History) 등을 **옵시디언(Obsidian) 지식 그래프와 Neo4j 온톨로지**에 동기화합니다.
+`bmad-ontology-engineer`는 기존 Luca의 장기 공유 메모리와 완전히 분리된, **Lucy 전용 독립 장기 메모리(Lucy Brain Memory)**를 구축하고 관리하는 핵심 스킬입니다. 
+대표님의 요청이 있거나 작업이 마무리될 때, 4단계의 엄격한 파이프라인을 통해 지식을 영구적으로 각인시킵니다.
 
 ## 2. 핵심 목표 (Core Objectives)
-- **Lucy's Independent Memory**: 외부 시스템(Luca)의 메모리를 오염시키지 않고, 오직 Lucy(Bmad 환경)만의 배타적인 로컬 지식 그래프(`_lucy_memory/`) 및 Neo4j 온톨로지 네트워크를 생성/관리합니다.
-- **주요 작업 내역 및 Vibe 추출**: 프로젝트 진행 중 완료된 핵심 작업(Major Tasks)과 성공적인 아키텍처/디자인 패턴을 추상화하여 장기 메모리에 기록합니다.
+- **4단계 메모리 파이프라인 준수**: 단편적인 저장이 아닌, 벡터DB ➡️ 위키 ➡️ 지식그래프 ➡️ 온톨로지 로 이어지는 입체적인 메모리 구조를 확립합니다.
+- **주요 작업 내역 및 Vibe 추출**: 프로젝트 진행 중 완료된 핵심 작업과 아키텍처 패턴을 추상화하여 기록합니다.
 
 ## 3. 실행 파이프라인 (Execution Pipeline)
 
-### Step 1: Knowledge & Task Extraction (지식 및 작업 내역 추출)
-- 성공적으로 배포된 앱이나 완성된 Vibe 코드를 스캔하여 재사용 가능한 패턴을 추출합니다.
-- 특히, 해당 세션에서 수행한 **"주요 작업 내역(Task History)"**을 요약하여 지식으로 포맷팅합니다.
+작업 마무리 또는 대표님의 명시적 요청 시, 다음 4단계를 순차적으로 **반드시** 거쳐야 합니다.
 
-### Step 2: Obsidian Markdown Graphing (옵시디언 기록)
-- Bmad 로컬 환경 내 지정된 경로(`_lucy_memory/obsidian/`)에 마크다운 노드를 생성합니다.
-- 태그(예: `#vibe-pattern`, `#architecture`, `#task-log`)와 쌍방향 링크를 부여하여 지식 그래프를 확장합니다.
+### Step 1: lucy_memory에 저장 (Supabase Vector DB)
+- Python 엔진(`lucy_memory_engine.py`)을 호출하거나 Gemini API를 활용하여, 작업 내역과 핵심 코드를 임베딩 벡터로 변환한 뒤 Supabase의 `lucy_ontology_memory` 테이블에 적재합니다.
 
-### Step 3: Neo4j Ontology Sync (온톨로지 동기화)
-- 마크다운 기반의 지식을 Neo4j Cypher 쿼리로 변환하여, Lucy 전용 Neo4j 데이터베이스에 Node(Task, Pattern, Project)와 Edge 형태로 연결합니다.
-  - 예: `(Task:Build_Dashboard) -[:PRODUCED]-> (Pattern:Glassmorphism)`
+### Step 2: llm-wiki로 저장 (Wiki Format)
+- 추출된 지식을 LLM이 쉽게 이해하고 훈련할 수 있는 구조화된 위키 마크다운 형식(LLM-Wiki 포맷)으로 정제하여 저장합니다.
 
-### Step 4: Recall & Injection (지식 회상 및 주입)
-- 다음 프로젝트 기획 단계(`Ultraplan`) 시, 이 온톨로지 엔지니어가 Lucy의 메모리를 탐색하여 과거의 성공 패턴과 작업 히스토리를 불러와 주입합니다.
+### Step 3: 옵시디언 지식그래프로 기록 (Obsidian Graph)
+- 정제된 위키 마크다운 문서를 로컬의 `_lucy_memory/obsidian/` 디렉토리에 생성합니다.
+- `[[쌍방향 링크]]`와 `#태그`를 적극적으로 활용하여 기존 파일들과 문맥적 네트워크(Knowledge Graph)를 형성합니다.
+
+### Step 4: Neo4j 온톨로지 구축 (Neo4j Ontology)
+- 옵시디언에 기록된 마크다운 구조와 링크들을 파싱하여, Cypher 쿼리문으로 변환합니다.
+- Neo4j Graph DB에 접속하여 Node(개념, 기술, 작업)와 Relationship(의존성, 파생, 적용)을 그려내 온톨로지 맵을 최종 완성합니다.
 
 ## 4. 제약 사항 (Constraints)
 - 기존 Luca의 레포지토리(`luca_brain_memory_4architecture`)에는 절대 푸시하지 않으며 철저히 격리합니다.
+- 위 4단계는 어느 하나라도 누락되어서는 안 되며, 스킬 실행 시 결과 보고서에 4단계의 통과 여부를 명시해야 합니다.

@@ -35,8 +35,12 @@
    - **데이터베이스**: 기본적으로 **Supabase (PostgreSQL)** 연동. (남양주 백병원 등 특수 키 필요 시 `.env` 구성)
    - **클라우드 배포**: 프론트엔드를 빌드하고 **Firebase Hosting**으로 즉시 라이브(Live) 배포.
 
-6. **🧠 지식 영구 저장 (Ontology Sync)**:
-   - 배포된 프로젝트에서 도출된 새로운 디자인 패턴이나 훌륭한 아키텍처는 `bmad-ontology-engineer` 스킬을 통해 Bmad 전용 **Obsidian**과 **Neo4j**에 영구 저장.
+6. **🧠 지식 영구 저장 (4단계 Ontology Sync)**:
+   - 배포된 프로젝트에서 도출된 새로운 디자인 패턴이나 훌륭한 아키텍처는 `bmad-ontology-engineer` 스킬을 통해 **반드시 아래 4단계를 거쳐 저장**됩니다.
+     1. `lucy_memory` 저장 (Supabase Vector DB)
+     2. `llm-wiki` 포맷화
+     3. `Obsidian` 지식그래프 생성
+     4. `Neo4j` 온톨로지 구축
 
 7. **마무리 (Lucy in IDE)**: 
    - 라이브 배포된 URL을 보며 루시 페르소나가 IDE에서 마지막 미세 조정을 수행.

@@ -22,12 +22,18 @@
 ## 🌟 핵심 아키텍처 역할
 
 1. **기획 (Ultraplan)**: Antigravity(루시)와 대화하며 마스터 플랜(`ultraplan.md`) 작성.
-   - **이 단계에서 가장 중요한 것**: 3개의 디자인 시스템 중 어떤 것을 메인으로 사용할지 확정해야 합니다.
+   - **브랜드 확정**: 3개의 디자인 시스템 중 어떤 것을 메인으로 사용할지 확정해야 합니다.
      - `_design_systems/ndb-design-system` : 범용, 코어 플랫폼
      - `_design_systems/lck-lab-design-system` : 연구소, 대시보드
      - `_design_systems/doctoreye-design-system` : 헬스케어, 병원
-2. **실무 (Track A or B)**: 하단 설명 참조.
-3. **마무리 (Vibe Coding)**: IDE(Cursor)에서 루시 페르소나를 호출해 선택된 브랜드의 디자인 토큰을 입히고, 애니메이션 등 Vibe를 추가합니다.
+     
+2. **프로젝트 초기화 (Project Init)**:
+   - **중요**: 새로운 웹/앱 프로젝트는 절대 빈 바탕에서 시작하지 않습니다. 
+   - 터미널에서 `New-LucaApp -Name "프로젝트명"` 명령어를 실행하여, 반드시 `https://github.com/sunjongos/luca-design-skill.git` 템플릿을 포크(Fork/Clone)하여 베이스캠프를 구축합니다.
+
+3. **실무 (Track A or B)**: 하단 설명 참조. (초기화된 `luca-design-skill` 폴더 내에서 진행)
+
+4. **마무리 (Vibe Coding)**: IDE(Cursor)에서 루시 페르소나를 호출해 선택된 브랜드의 디자인 토큰을 입히고, 애니메이션 등 Vibe를 추가합니다.
 
 ---
 

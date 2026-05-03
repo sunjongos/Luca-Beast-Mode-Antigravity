@@ -1,8 +1,8 @@
-# SOP: Bmad & Gemini Tri-Environment Workflow (with Stitch MCP)
+# SOP: Bmad & Gemini Tri-Environment Workflow (with Stitch MCP & Brand Design Systems)
 
 본 표준 작업 절차(SOP) 문서는 프로젝트의 목적(High-Fidelity vs Hyper-Velocity)에 따라 두 가지 트랙으로 운용할 수 있는 하이브리드 워크플로우를 규정합니다. 
 
-특히 **Stitch MCP**를 활용한 클라우드 네이티브 UI 에셋 확보 절차가 포함되어 있습니다.
+특히 **Stitch MCP**를 활용한 클라우드 네이티브 UI 에셋 확보 절차와, **3대 브랜드 디자인 시스템(NDB, LCK Lab, Doctor Eye)**의 라우팅 기준이 포함되어 있습니다.
 
 ---
 
@@ -15,15 +15,19 @@
    Connect-Stitch
    # (내부적으로 gcloud config set project ai-agent-469105 및 gcloud auth application-default login 실행)
    ```
-2. **Stitch MCP 구동 확인**: IDE(Cursor)의 MCP 설정 탭에서 `stitch` 서버가 정상적으로 활성화되었는지(API Key 로드 확인) 체크합니다.
+2. **Stitch MCP 구동 확인**: IDE(Cursor)의 MCP 설정 탭에서 `stitch` 서버가 정상적으로 활성화되었는지 체크합니다.
 
 ---
 
 ## 🌟 핵심 아키텍처 역할
 
 1. **기획 (Ultraplan)**: Antigravity(루시)와 대화하며 마스터 플랜(`ultraplan.md`) 작성.
+   - **이 단계에서 가장 중요한 것**: 3개의 디자인 시스템 중 어떤 것을 메인으로 사용할지 확정해야 합니다.
+     - `_design_systems/ndb-design-system` : 범용, 코어 플랫폼
+     - `_design_systems/lck-lab-design-system` : 연구소, 대시보드
+     - `_design_systems/doctoreye-design-system` : 헬스케어, 병원
 2. **실무 (Track A or B)**: 하단 설명 참조.
-3. **마무리 (Vibe Coding)**: IDE(Cursor)에서 루시 페르소나를 호출해 Stitch UI 뼈대에 감각적인 애니메이션, 글래스모피즘 등을 덧입힙니다.
+3. **마무리 (Vibe Coding)**: IDE(Cursor)에서 루시 페르소나를 호출해 선택된 브랜드의 디자인 토큰을 입히고, 애니메이션 등 Vibe를 추가합니다.
 
 ---
 

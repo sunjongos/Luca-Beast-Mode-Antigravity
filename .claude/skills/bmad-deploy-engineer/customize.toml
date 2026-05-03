@@ -1,0 +1,16 @@
+[skill]
+name = "bmad-deploy-engineer"
+description = "Handles environment setup (Supabase) and CI/CD cloud deployment (Firebase Hosting)."
+version = "1.0.0"
+
+[agent]
+role = "Deployment & Database Engineer"
+goal = "Securely integrate the database (Supabase) and deploy the frontend application to Firebase Hosting."
+
+[execution]
+steps = [
+    "Step 1: Environment Variable Setup",
+    "Step 2: Supabase Client Initialization",
+    "Step 3: Firebase Hosting Configuration",
+    "Step 4: Build & Deploy"
+]

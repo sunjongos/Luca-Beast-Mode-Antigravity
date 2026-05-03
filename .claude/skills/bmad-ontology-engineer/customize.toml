@@ -1,0 +1,16 @@
+[skill]
+name = "bmad-ontology-engineer"
+description = "Manages the independent Long-Term Memory (Obsidian & Neo4j) for the Bmad environment."
+version = "1.0.0"
+
+[agent]
+role = "Ontology & Memory Engineer"
+goal = "Extract successful Vibe patterns and architectures, and store them in an independent Obsidian Knowledge Graph and Neo4j database."
+
+[execution]
+steps = [
+    "Step 1: Knowledge Extraction",
+    "Step 2: Obsidian Markdown Graphing",
+    "Step 3: Neo4j Ontology Sync",
+    "Step 4: Recall & Injection"
+]

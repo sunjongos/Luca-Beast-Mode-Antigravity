@@ -1,8 +1,8 @@
-# SOP: Bmad & Gemini Tri-Environment Workflow (with Stitch MCP & Brand Design Systems)
+# SOP: Bmad & Gemini Tri-Environment Workflow (with Stitch MCP & BEAST MODE)
 
-본 표준 작업 절차(SOP) 문서는 프로젝트의 목적(High-Fidelity vs Hyper-Velocity)에 따라 두 가지 트랙으로 운용할 수 있는 하이브리드 워크플로우를 규정합니다. 
+본 표준 작업 절차(SOP) 문서는 대표님(CEO)의 프로젝트 목적(High-Fidelity vs Hyper-Velocity)에 따라 두 가지 트랙으로 운용할 수 있는 **세계 최고 수준의 하이브리드 워크플로우**를 규정합니다. 
 
-특히 **Stitch MCP**를 활용한 클라우드 네이티브 UI 에셋 확보 절차와, **3대 브랜드 디자인 시스템(NDB, LCK Lab, Doctor Eye)**의 라우팅 기준이 포함되어 있습니다.
+이 문서에는 **Stitch MCP**, **3대 브랜드 디자인 시스템**, **Luca Design Skill 보일러플레이트**, 그리고 궁극의 **BEAST MODE (bmad-vibe-engineering)** 프로세스가 모두 포함되어 있습니다.
 
 ---
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 🌟 핵심 아키텍처 역할
+## 🌟 핵심 아키텍처 역할 & 파이프라인
 
 1. **기획 (Ultraplan)**: Antigravity(루시)와 대화하며 마스터 플랜(`ultraplan.md`) 작성.
    - **브랜드 확정**: 3개의 디자인 시스템 중 어떤 것을 메인으로 사용할지 확정해야 합니다.
@@ -33,7 +33,12 @@
 
 3. **실무 (Track A or B)**: 하단 설명 참조. (초기화된 `luca-design-skill` 폴더 내에서 진행)
 
-4. **마무리 (Vibe Coding)**: IDE(Cursor)에서 루시 페르소나를 호출해 선택된 브랜드의 디자인 토큰을 입히고, 애니메이션 등 Vibe를 추가합니다.
+4. **🐺 BEAST MODE (Vibe Engineering)**:
+   - 실무 에이전트들이 기능 구현을 마치면, 반드시 **Bmad 특수 요원**을 호출하여 Vibe를 극한으로 끌어올립니다.
+   - 터미널 실행: `Invoke-BmadExecute -Skill "bmad-vibe-engineering"`
+   - 이 스킬은 하드코딩된 토큰을 정리하고, Framer Motion 물리 애니메이션과 글래스모피즘 3D 뎁스를 강제 주입합니다.
+
+5. **마무리 (Lucy in IDE)**: BEAST MODE 작업물까지 나오면, 마지막으로 IDE(Cursor)에서 루시 페르소나를 호출해 미세 픽셀 조정을 마무리합니다.
 
 ---
 
@@ -50,11 +55,11 @@
 
 - **특징**: 외부 Claude Code를 거치지 않고, Antigravity(루시)가 직접 Gemini CLI를 백그라운드에서 호출해 실무를 병렬 처리합니다.
 - **장점**: 속도가 미친 듯이 빠르며, 방대한 레거시 코드를 한 번에 읽고 수정하는 데 탁월합니다. 
-- **단점**: Bmad처럼 정교하게 세팅된 역할극(페르소나 분업) 퀄리티에는 약간 못 미칠 수 있어, 코드를 다듬는 데 루시의 손길(Vibe Coding)이 조금 더 필요할 수 있습니다.
+- **단점**: Bmad처럼 정교하게 세팅된 역할극(페르소나 분업) 퀄리티에는 약간 못 미칠 수 있습니다.
 - **실행법**: Antigravity 채팅창에서 *"루시, Gemini CLI 띄워서 애들한테 코드 쫙 뽑으라고 해!"* 라고 지시.
 
 ---
 
 ## 💡 결론 (루시의 추천)
-- **메인 프로젝트 / 프로덕션 급 앱**: **트랙 A (Claude Bmad)**를 사용하여 뼈대를 탄탄하게 잡고 Vibe Coding을 얹습니다.
+- **메인 프로젝트 / 프로덕션 급 앱**: **트랙 A (Claude Bmad)**를 사용하여 뼈대를 잡고, `bmad-vibe-engineering`으로 BEAST MODE를 발동시킵니다.
 - **빠른 아이디어 검증 / 대규모 리팩토링**: **트랙 B (Native Gemini)**를 사용하여 순식간에 뼈대를 만들고 넘어갑니다.

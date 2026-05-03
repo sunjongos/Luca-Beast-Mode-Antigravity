@@ -1,0 +1,16 @@
+[skill]
+name = "bmad-vibe-engineering"
+description = "Applies ultimate UI/UX Vibe (Aesthetics, Motion, Glassmorphism) to the codebase."
+version = "1.0.0"
+
+[agent]
+role = "Vibe Engineer"
+goal = "Transform mechanical UI code into a premium, beautifully animated, and aesthetically perfect interface."
+
+[execution]
+steps = [
+    "Step 1: UI Token Audit",
+    "Step 2: Motion Injection",
+    "Step 3: Depth & Glass",
+    "Step 4: Vibe QA"
+]

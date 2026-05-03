@@ -18,7 +18,7 @@ if not all([GEMINI_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY]):
 # Initialize Gemini
 genai.configure(api_key=GEMINI_API_KEY)
 # Using the recommended embedding model
-embedding_model = 'models/text-embedding-004' 
+embedding_model = 'models/embedding-001' 
 
 # Initialize Supabase
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_KEY)
@@ -33,21 +33,21 @@ def get_embedding(text: str) -> list[float]:
     )
     return result['embedding']
 
-def sync_obsidian_to_supabase(directory_path: str = "./obsidian"):
+def sync_obsidian_to_supabase(directory_path: str = "_lucy_memory/obsidian"):
     """
     Reads markdown files from the Obsidian directory, generates vector embeddings,
     and upserts them into the Supabase lucy_ontology_memory table.
     """
-    print(f"🧠 [Lucy Memory Engine] Scanning {directory_path} for knowledge nodes...")
+    print(f"[Lucy Memory Engine] Scanning {directory_path} for knowledge nodes...")
     md_files = glob.glob(os.path.join(directory_path, "*.md"))
     
     if not md_files:
-        print("⚠️ No markdown files found.")
+        print("[Warning] No markdown files found.")
         return
 
     for filepath in md_files:
         filename = os.path.basename(filepath)
-        print(f"🔄 Processing {filename}...")
+        print(f"[Process] Processing {filename}...")
         
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -62,7 +62,7 @@ def sync_obsidian_to_supabase(directory_path: str = "./obsidian"):
         try:
             vector = get_embedding(content)
         except Exception as e:
-            print(f"❌ Failed to get embedding for {filename}: {e}")
+            print(f"[Error] Failed to get embedding for {filename}: {e}")
             continue
             
         # Upsert to Supabase
@@ -78,16 +78,16 @@ def sync_obsidian_to_supabase(directory_path: str = "./obsidian"):
         try:
             # Note: Ensure you have created the table and match the schema.
             response = supabase.table("lucy_ontology_memory").upsert(node_data).execute()
-            print(f"✅ Successfully synced {filename} to Supabase!")
+            print(f"[Success] Successfully synced {filename} to Supabase!")
         except Exception as e:
-            print(f"❌ Supabase sync failed for {filename}: {e}")
+            print(f"[Error] Supabase sync failed for {filename}: {e}")
 
 def recall_memory(query: str, top_k: int = 3):
     """
     Searches the memory using a query string via vector similarity.
     Requires a Supabase RPC function 'match_lucy_memory' to be set up.
     """
-    print(f"🔍 [Lucy Memory Engine] Recalling memory for: '{query}'")
+    print(f"[Lucy Memory Engine] Recalling memory for: '{query}'")
     query_embedding = get_embedding(query)
     
     try:
@@ -99,16 +99,16 @@ def recall_memory(query: str, top_k: int = 3):
         
         results = response.data
         if not results:
-            print("아무런 기억이 떠오르지 않습니다. (No memories found)")
+            print("[Info] 아무런 기억이 떠오르지 않습니다. (No memories found)")
             return
             
         for i, match in enumerate(results):
-            print(f"\n--- 🧠 Recall #{i+1} (Similarity: {match['similarity']:.2f}) ---")
+            print(f"\n--- Recall #{i+1} (Similarity: {match['similarity']:.2f}) ---")
             print(f"Node: {match['node_id']}")
             print(f"Content: {match['content'][:200]}...")
             
     except Exception as e:
-        print(f"❌ Recall failed: {e}")
+        print(f"[Error] Recall failed: {e}")
 
 if __name__ == "__main__":
     import sys
